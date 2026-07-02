@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ===== BEAN LIFECYCLE: Init and Destroy Methods ===== -->
+    <!-- DatabasePool with init-method and destroy-method -->
+    <bean id="databasePool" class="com.spring.ioc.advanced.beans.DatabasePool" 
+          init-method="initialize" destroy-method="destroy">
+        <constructor-arg value="jdbc:mysql://localhost:3306/mydb"/>
+        <constructor-arg value="root"/>
+        <constructor-arg value="password"/>
+        <property name="maxConnections" value="20"/>
+        <property name="minConnections" value="5"/>
+    </bean>
+
+    <!-- ===== FACTORY METHODS ===== -->
+    <!-- Using static factory method to create bean -->
+    <bean id="mysqlDataSource" class="com.spring.ioc.advanced.beans.DataSourceFactory" 
+          factory-method="createDataSource">
+        <constructor-arg value="mysql"/>
+    </bean>
+
+    <bean id="postgresDataSource" class="com.spring.ioc.advanced.beans.DataSourceFactory" 
+          factory-method="createDataSource">
+        <constructor-arg value="postgres"/>
+    </bean>
+
+    <!-- ===== BEAN SCOPE: Singleton (default) vs Prototype ===== -->
+    <!-- Singleton scope - same instance for all requests (default) -->
+    <bean id="singletonResource" class="com.spring.ioc.advanced.beans.ExpensiveResource" 
+          scope="singleton"/>
+
+    <!-- Prototype scope - new instance for each request -->
+    <bean id="prototypeResource" class="com.spring.ioc.advanced.beans.ExpensiveResource" 
+          scope="prototype"/>
+
+    <!-- ===== LAZY INITIALIZATION ===== -->
+    <!-- Lazy bean - not created until first use -->
+    <bean id="lazyResource" class="com.spring.ioc.advanced.beans.ExpensiveResource" 
+          lazy-init="true"/>
+
+    <!-- ===== COLLECTION INJECTION ===== -->
+    <!-- AppConfiguration with List, Map, and Set injection -->
+    <bean id="appConfig" class="com.spring.ioc.advanced.beans.AppConfiguration">
+        <!-- List injection -->
+        <property name="serverUrls">
+            <list>
+                <value>http://localhost:8080</value>
+                <value>http://backup1:8080</value>
+                <value>http://backup2:8080</value>
+            </list>
+        </property>
+
+        <!-- Map injection -->
+        <property name="properties">
+            <map>
+                <entry key="app.name" value="MyApp"/>
+                <entry key="app.version" value="1.0"/>
+                <entry key="app.environment" value="production"/>
+                <entry key="app.debug" value="false"/>
+            </map>
+        </property>
+
+        <!-- Set injection -->
+        <property name="allowedRoles">
+            <set>
+                <value>ADMIN</value>
+                <value>USER</value>
+                <value>GUEST</value>
+            </set>
+        </property>
+    </bean>
+
+</beans>

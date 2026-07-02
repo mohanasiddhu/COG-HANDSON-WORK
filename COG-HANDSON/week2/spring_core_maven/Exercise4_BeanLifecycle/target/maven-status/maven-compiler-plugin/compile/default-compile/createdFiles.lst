@@ -1,0 +1,4 @@
+com\spring\lifecycle\beans\CacheManager.class
+com\spring\lifecycle\beans\ConnectionPool.class
+com\spring\lifecycle\beans\ServiceWithContextAware.class
+com\spring\lifecycle\demo\BeanLifecycleDemo.class

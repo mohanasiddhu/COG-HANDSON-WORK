@@ -1,0 +1,5 @@
+com\spring\aop\basic\aspects\SecurityAuditingAspect.class
+com\spring\aop\basic\services\BankAccountService.class
+com\spring\aop\basic\aspects\PerformanceMonitoringAspect.class
+com\spring\aop\basic\services\BankAccountServiceImpl.class
+com\spring\aop\basic\main\BasicAOPDemo.class

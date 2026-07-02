@@ -1,0 +1,4 @@
+com\spring\aop\services\UserService.class
+com\spring\aop\main\AOPLoggingDemo.class
+com\spring\aop\aspects\LoggingAspect.class
+com\spring\aop\services\impl\UserServiceImpl.class

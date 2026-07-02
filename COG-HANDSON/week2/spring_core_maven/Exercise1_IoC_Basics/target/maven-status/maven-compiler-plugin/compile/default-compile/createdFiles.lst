@@ -1,0 +1,7 @@
+com\spring\ioc\basics\beans\UserRepository.class
+com\spring\ioc\basics\beans\UserService.class
+com\spring\ioc\basics\demo\IoCBasicsDemo.class
+com\spring\ioc\basics\beans\UserRepositoryImpl.class
+com\spring\ioc\basics\beans\User.class
+com\spring\ioc\basics\beans\EmailServiceImpl.class
+com\spring\ioc\basics\beans\EmailService.class

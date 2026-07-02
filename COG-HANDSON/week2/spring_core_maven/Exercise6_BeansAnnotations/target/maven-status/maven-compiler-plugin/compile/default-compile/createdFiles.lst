@@ -1,0 +1,8 @@
+com\spring\annotations\repositories\UserRepository.class
+com\spring\annotations\repositories\UserRepositoryImpl.class
+com\spring\annotations\services\UserServiceImpl.class
+com\spring\annotations\services\EmailService.class
+com\spring\annotations\services\UserService.class
+com\spring\annotations\services\EmailServiceImpl.class
+com\spring\annotations\main\AnnotationBeansDemo.class
+com\spring\annotations\beans\ApplicationLogger.class

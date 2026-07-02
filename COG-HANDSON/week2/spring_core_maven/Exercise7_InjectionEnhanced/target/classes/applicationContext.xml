@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define PaymentService implementations -->
+    <bean id="creditCardPaymentService" 
+          class="com.spring.di.enhanced.services.CreditCardPaymentService"/>
+
+    <bean id="digitalWalletPaymentService" 
+          class="com.spring.di.enhanced.services.DigitalWalletPaymentService"/>
+
+    <!-- ===== CONSTRUCTOR INJECTION ===== -->
+    <!-- OrderProcessor with Constructor Injection -->
+    <bean id="orderProcessor1" class="com.spring.di.enhanced.beans.OrderProcessor">
+        <!-- First constructor argument: PaymentService -->
+        <constructor-arg ref="creditCardPaymentService"/>
+        <!-- Second constructor argument: String processorName -->
+        <constructor-arg value="CC Processor"/>
+    </bean>
+
+    <bean id="orderProcessor2" class="com.spring.di.enhanced.beans.OrderProcessor">
+        <!-- Different PaymentService implementation -->
+        <constructor-arg ref="digitalWalletPaymentService"/>
+        <constructor-arg value="Wallet Processor"/>
+    </bean>
+
+    <!-- ===== SETTER INJECTION ===== -->
+    <!-- ShoppingCart with Setter Injection -->
+    <bean id="shoppingCart1" class="com.spring.di.enhanced.beans.ShoppingCart">
+        <property name="paymentService" ref="creditCardPaymentService"/>
+        <property name="cartId" value="CART001"/>
+        <property name="cartTotal" value="99.99"/>
+    </bean>
+
+    <bean id="shoppingCart2" class="com.spring.di.enhanced.beans.ShoppingCart">
+        <property name="paymentService" ref="digitalWalletPaymentService"/>
+        <property name="cartId" value="CART002"/>
+        <property name="cartTotal" value="149.99"/>
+    </bean>
+
+    <!-- ShoppingCart without PaymentService (optional dependency) -->
+    <bean id="shoppingCart3" class="com.spring.di.enhanced.beans.ShoppingCart">
+        <property name="cartId" value="CART003"/>
+        <property name="cartTotal" value="79.99"/>
+        <!-- Note: paymentService is not set, demonstrating optional dependency -->
+    </bean>
+
+</beans>

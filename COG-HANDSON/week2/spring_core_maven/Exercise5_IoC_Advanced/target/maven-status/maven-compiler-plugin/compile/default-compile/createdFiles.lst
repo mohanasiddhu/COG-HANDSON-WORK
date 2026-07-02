@@ -1,0 +1,8 @@
+com\spring\ioc\advanced\beans\DataSourceFactory.class
+com\spring\ioc\advanced\beans\MysqlDataSource.class
+com\spring\ioc\advanced\beans\ExpensiveResource.class
+com\spring\ioc\advanced\main\AdvancedIoCDemo.class
+com\spring\ioc\advanced\beans\DataSource.class
+com\spring\ioc\advanced\beans\AppConfiguration.class
+com\spring\ioc\advanced\beans\DatabasePool.class
+com\spring\ioc\advanced\beans\PostgresDataSource.class

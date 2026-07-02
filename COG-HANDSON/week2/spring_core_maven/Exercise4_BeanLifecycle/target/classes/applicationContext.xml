@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ConnectionPool with init-method and destroy-method -->
+    <bean id="connectionPool" class="com.spring.lifecycle.beans.ConnectionPool"
+          init-method="initialize" destroy-method="destroy">
+        <property name="poolName" value="AppConnectionPool"/>
+        <property name="maxConnections" value="10"/>
+    </bean>
+
+    <!-- CacheManager implementing InitializingBean and DisposableBean -->
+    <bean id="cacheManager" class="com.spring.lifecycle.beans.CacheManager">
+        <property name="cacheName" value="AppCache"/>
+        <property name="cacheSize" value="100"/>
+    </bean>
+
+    <!-- Service with ApplicationContextAware -->
+    <bean id="service" class="com.spring.lifecycle.beans.ServiceWithContextAware">
+        <property name="serviceName" value="MyService"/>
+    </bean>
+
+</beans>

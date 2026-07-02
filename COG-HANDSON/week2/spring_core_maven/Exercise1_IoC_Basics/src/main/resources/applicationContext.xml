@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define EmailService bean -->
+    <bean id="emailService" class="com.spring.ioc.basics.beans.EmailServiceImpl"/>
+
+    <!-- Define UserRepository bean -->
+    <bean id="userRepository" class="com.spring.ioc.basics.beans.UserRepositoryImpl"/>
+
+    <!-- Define UserService bean with constructor injection -->
+    <bean id="userService" class="com.spring.ioc.basics.beans.UserService">
+        <constructor-arg ref="userRepository"/>
+        <constructor-arg ref="emailService"/>
+    </bean>
+
+</beans>

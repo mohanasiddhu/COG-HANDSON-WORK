@@ -1,0 +1,7 @@
+com\spring\injection\services\DatabaseService.class
+com\spring\injection\services\Logger.class
+com\spring\injection\services\ApplicationManager.class
+com\spring\injection\services\MockDatabaseService.class
+com\spring\injection\demo\BasicInjectionDemo.class
+com\spring\injection\services\ConsoleLogger.class
+com\spring\injection\services\UserNotificationService.class
