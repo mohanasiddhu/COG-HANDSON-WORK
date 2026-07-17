@@ -1,0 +1,36 @@
+# Dependencies
+**/node_modules/
+**/dist/
+**/out-tsc/
+
+# Build outputs
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Databases
+*.db
+*.mv.db
+*.trace.db
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.classpath
+.project
+.settings/
+.nb-gradle/
+
+# Logs and runtime
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
